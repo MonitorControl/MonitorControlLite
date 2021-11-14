@@ -30,7 +30,7 @@ class AboutPrefsViewController: NSViewController, PreferencePane {
   }
 
   @IBAction func openWebPage(_: NSButton) {
-    if let url = URL(string: "https://waydabber.github.io/MonitorControlLite/appstore.html") {
+    if let url = URL(string: "https://monitorcontrol.app/lite") {
       NSWorkspace.shared.open(url)
     }
   }
