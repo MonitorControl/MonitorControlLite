@@ -34,7 +34,6 @@
 		AA99521726FE25AB00612E07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99521626FE25AB00612E07 /* AppDelegate.swift */; };
 		AA99521926FE49A300612E07 /* MenuHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99521826FE49A300612E07 /* MenuHandler.swift */; };
 		AA9AE87126B5BFB700B6CA65 /* CoreDisplay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9AE87026B5BFB700B6CA65 /* CoreDisplay.framework */; };
-		AAAF6EC427400EF9008F5446 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = AAAF6EC327400EF9008F5446 /* index.html */; };
 		AAB2F648273F256C004AB5A4 /* .github in Resources */ = {isa = PBXBuildFile; fileRef = AAB2F647273F256C004AB5A4 /* .github */; };
 		F01B0699228221B7008E64DB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F01B0680228221B6008E64DB /* Localizable.strings */; };
 		F01B069F228221B7008E64DB /* SliderHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B068F228221B7008E64DB /* SliderHandler.swift */; };
@@ -85,7 +84,6 @@
 		AA99521626FE25AB00612E07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA99521826FE49A300612E07 /* MenuHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuHandler.swift; sourceTree = "<group>"; };
 		AA9AE87026B5BFB700B6CA65 /* CoreDisplay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreDisplay.framework; path = ../../../../../System/Library/Frameworks/CoreDisplay.framework; sourceTree = "<group>"; };
-		AAAF6EC327400EF9008F5446 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		AAB2F647273F256C004AB5A4 /* .github */ = {isa = PBXFileReference; lastKnownFileType = folder; path = .github; sourceTree = "<group>"; };
 		F01B0682228221B6008E64DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F01B0685228221B6008E64DB /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 				AA0C0881273D45660039ED14 /* .swiftformat */,
 				AA0C0885273D45740039ED14 /* .swiftlint.yml */,
 				AA3B4A2726AE103C00B74CD2 /* README.md */,
-				AAAF6EC227400EC0008F5446 /* docs */,
 				28D1DDD1227FB759004CB494 /* Frameworks */,
 				56754EAD1D9A4016007BCDC5 /* MonitorControlLite */,
 				F06792E8200A73460066C438 /* MonitorControlLiteHelper */,
@@ -196,14 +193,6 @@
 				AA5314C326EBF5170041D178 /* PrefKey.swift */,
 			);
 			path = Enums;
-			sourceTree = "<group>";
-		};
-		AAAF6EC227400EC0008F5446 /* docs */ = {
-			isa = PBXGroup;
-			children = (
-				AAAF6EC327400EF9008F5446 /* index.html */,
-			);
-			path = docs;
 			sourceTree = "<group>";
 		};
 		F01B067F228221B6008E64DB /* Support */ = {
@@ -351,7 +340,6 @@
 				56754EB11D9A4016007BCDC5 /* Assets.xcassets in Resources */,
 				6CDA0FCF26485A8300F52125 /* Main.storyboard in Resources */,
 				AAB2F648273F256C004AB5A4 /* .github in Resources */,
-				AAAF6EC427400EF9008F5446 /* index.html in Resources */,
 				AA0C0882273D45660039ED14 /* .swiftformat in Resources */,
 				AA3B4A2826AE103C00B74CD2 /* README.md in Resources */,
 				F01B0699228221B7008E64DB /* Localizable.strings in Resources */,
