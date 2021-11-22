@@ -45,6 +45,10 @@ The following functionality is not present in MonitorControl Lite as compared wi
 - Usage of native Apple Keyboard media keys (custom shortcuts are supported)
 - MonitorControl Lite is available in English only.
 
+## Privacy Policy
+
+MonitorControl Lite does not collect any personal information.
+
 ## Maintainer
 
 - [@waydabber](https://github.com/waydabber)
