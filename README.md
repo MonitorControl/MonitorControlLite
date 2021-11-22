@@ -49,6 +49,17 @@ The following functionality is not present in MonitorControl Lite as compared wi
 
 MonitorControl Lite does not collect any personal information.
 
+## Screenshots
+
+<div align="center">
+<img src=".github/1.png" width="400">
+<img src=".github/2.png" width="400">
+<img src=".github/4.png" width="400">
+<img src=".github/5.png" width="400">
+<img src=".github/6.png" width="400">
+<img src=".github/7.png" width="400">
+</div>
+
 ## Maintainer
 
 - [@waydabber](https://github.com/waydabber)
