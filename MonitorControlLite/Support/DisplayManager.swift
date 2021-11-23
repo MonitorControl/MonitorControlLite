@@ -305,9 +305,9 @@ class DisplayManager {
   }
 
   static func isDummy(displayID: CGDirectDisplayID) -> Bool {
-    let rawName = DisplayManager.getDisplayRawNameByID(displayID: displayID)
+    let rawName = DisplayManager.getDisplayNameByID(displayID: displayID)
     var isDummy: Bool = false
-    if rawName == "28E850" || rawName.lowercased().contains("dummy") {
+    if rawName.lowercased().contains("dummy") {
       os_log("NOTE: Display is a dummy!", type: .info)
       isDummy = true
     }
@@ -316,14 +316,9 @@ class DisplayManager {
 
   static func isVirtual(displayID: CGDirectDisplayID) -> Bool {
     var isVirtual: Bool = false
-    if !DEBUG_MACOS10, #available(macOS 11.0, *) {
-      if let dictionary = ((CoreDisplay_DisplayCreateInfoDictionary(displayID))?.takeRetainedValue() as NSDictionary?) {
-        let isVirtualDevice = dictionary["kCGDisplayIsVirtualDevice"] as? Bool
-        let displayIsAirplay = dictionary["kCGDisplayIsAirPlay"] as? Bool
-        if isVirtualDevice ?? displayIsAirplay ?? false {
-          isVirtual = true
-        }
-      }
+    let rawName = DisplayManager.getDisplayNameByID(displayID: displayID).lowercased()
+    if rawName.contains("dummy") || rawName.contains("airplay") || rawName.contains("sidecar") {
+      isVirtual = true
     }
     return isVirtual
   }
@@ -343,38 +338,10 @@ class DisplayManager {
     return NSScreen.screens.first { $0.displayID == displayID }
   }
 
-  static func getDisplayRawNameByID(displayID: CGDirectDisplayID) -> String {
-    let defaultName: String = ""
-    if !DEBUG_MACOS10, #available(macOS 11.0, *) {
-      if let dictionary = ((CoreDisplay_DisplayCreateInfoDictionary(displayID))?.takeRetainedValue() as NSDictionary?), let nameList = dictionary["DisplayProductName"] as? [String: String], let name = nameList["en_US"] ?? nameList.first?.value {
-        return name
-      }
-    }
-    if let screen = getByDisplayID(displayID: displayID) {
-      return screen.displayName ?? defaultName
-    }
-    return defaultName
-  }
-
   static func getDisplayNameByID(displayID: CGDirectDisplayID) -> String {
     let defaultName: String = NSLocalizedString("Unknown", comment: "Unknown display name")
-    if !DEBUG_MACOS10, #available(macOS 11.0, *) {
-      if let dictionary = ((CoreDisplay_DisplayCreateInfoDictionary(displayID))?.takeRetainedValue() as NSDictionary?), let nameList = dictionary["DisplayProductName"] as? [String: String], var name = nameList[Locale.current.identifier] ?? nameList["en_US"] ?? nameList.first?.value {
-        if CGDisplayIsInHWMirrorSet(displayID) != 0 || CGDisplayIsInMirrorSet(displayID) != 0 {
-          let mirroredDisplayID = CGDisplayMirrorsDisplay(displayID)
-          if mirroredDisplayID != 0, let dictionary = ((CoreDisplay_DisplayCreateInfoDictionary(mirroredDisplayID))?.takeRetainedValue() as NSDictionary?), let nameList = dictionary["DisplayProductName"] as? [String: String], let mirroredName = nameList[Locale.current.identifier] ?? nameList["en_US"] ?? nameList.first?.value {
-            name.append(" | " + mirroredName)
-          }
-        }
-        return name
-      }
-    }
-    if let screen = getByDisplayID(displayID: displayID) { // MARK: This, and NSScreen+Extension.swift will not be needed when we drop MacOS 10 support.
-      if #available(macOS 10.15, *) {
-        return screen.localizedName
-      } else {
-        return screen.displayName ?? defaultName
-      }
+    if let screen = getByDisplayID(displayID: displayID) {
+      return screen.localizedName
     }
     return defaultName
   }

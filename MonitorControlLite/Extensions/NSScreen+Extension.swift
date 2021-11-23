@@ -33,29 +33,4 @@ public extension NSScreen {
       return serialNumber
     }
   }
-
-  var displayName: String? {
-    var servicePortIterator = io_iterator_t()
-
-    let status = IOServiceGetMatchingServices(kIOMasterPortDefault, IOServiceMatching("IODisplayConnect"), &servicePortIterator)
-    guard status == KERN_SUCCESS else {
-      return nil
-    }
-
-    defer {
-      assert(IOObjectRelease(servicePortIterator) == KERN_SUCCESS)
-    }
-
-    while case let object = IOIteratorNext(servicePortIterator), object != 0 {
-      let dict = (IODisplayCreateInfoDictionary(object, UInt32(kIODisplayOnlyPreferredName)).takeRetainedValue() as NSDictionary as? [String: AnyObject])!
-
-      if dict[kDisplayVendorID] as? UInt32 == self.vendorNumber, dict[kDisplayProductID] as? UInt32 == self.modelNumber, dict[kDisplaySerialNumber] as? UInt32 == self.serialNumber {
-        if let productName = dict["DisplayProductName"] as? [String: String], let firstKey = Array(productName.keys).first {
-          return productName[firstKey]!
-        }
-      }
-    }
-
-    return nil
-  }
 }
