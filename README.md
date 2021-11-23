@@ -1,9 +1,10 @@
-<img src=".github/Icon-cropped.png" width="160" alt="App icon" align="left"/>
+<img src=".github/Icon-cropped.png" width="182" alt="App icon" align="left"/>
 
 <div>
 <h2>MonitorControl Lite</h2>
-  <p>Control your display's brightness from the macOS menu bar.<br/>
-  Simple and easy to use.</p>
+  <p>Control your display's brightness from the macOS menu bar.</p>
+  <p>
+  <a href="https://apps.apple.com/hu/app/monitorcontrol-lite/id1595464182"><img src=".github/macappstore.png" width="180"></a></p>
 </div>
 
 <br/>
